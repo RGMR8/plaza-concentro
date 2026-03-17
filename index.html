@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plaza Concentro | Centro de Negocios</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="#inicio" class="logo">
+      <img id="header-logo" src="img/logo_negro.png" alt="Plaza Concentro">
+    </a>
+
+    <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Sidebar -->
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-top">
+      <div class="sidebar-brand"><b>Plaza Concentro</b></div>
+      <button class="sidebar-close" onclick="document.getElementById('sidebar').classList.remove('open')">✕</button>
+    </div>
+
+    <ul>
+      <li><a href="#inicio" onclick="document.getElementById('sidebar').classList.remove('open')">Inicio</a></li>
+
+      <li class="has-submenu">
+        <a href="#" class="submenu-toggle" onclick="this.parentElement.classList.toggle('active'); return false;">
+          Plaza Concentro <span class="arrow">▾</span>
+        </a>
+        <ul class="submenu">
+          <li><a href="#sobre" onclick="document.getElementById('sidebar').classList.remove('open')">Sobre Concentro</a></li>
+          <li><a href="#servicios" onclick="document.getElementById('sidebar').classList.remove('open')">Servicios</a></li>
+          <li><a href="#instalaciones" onclick="document.getElementById('sidebar').classList.remove('open')">Instalaciones</a></li>
+        </ul>
+      </li>
+
+      <li class="has-submenu">
+      <a href="#" class="submenu-toggle" onclick="this.parentElement.classList.toggle('active'); return false;">
+        Directorio <span class="arrow">▾</span>
+        </a>
+          <ul class="submenu">
+          <li><a href="#restaurantes" onclick="document.getElementById('sidebar').classList.remove('open')">Restaurantes</a></li>
+          <li><a href="#oficinas" onclick="document.getElementById('sidebar').classList.remove('open')">Oficinas</a></li>
+          <li><a href="#servicios" onclick="document.getElementById('sidebar').classList.remove('open')">Servicios</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#mapa" onclick="document.getElementById('sidebar').classList.remove('open')">Mapa</a></li>
+      <li><a href="#renta" onclick="document.getElementById('sidebar').classList.remove('open')">Renta de Locales</a></li>
+      <li><a href="#galeria" onclick="document.getElementById('sidebar').classList.remove('open')">Galería</a></li>
+      <li><a href="#contacto" onclick="document.getElementById('sidebar').classList.remove('open')">Contacto</a></li>
+    </ul>
+
+    <!-- <a class="btn-renta sidebar-btn" href="#renta" onclick="document.getElementById('sidebar').classList.remove('open')">Rentar Local</a> -->
+  </nav>
+
+  <div class="overlay" onclick="document.getElementById('sidebar').classList.remove('open')"></div>
+
+ <!-- HERO -->
+ <section id="inicio" class="hero">
+  <div class="hero-art">
+    <div class="hero-slide active" style="background-image: url('img/concentro.jpeg');"></div>
+    <div class="hero-slide" style="background-image: url('img/img1.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('img/img5.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('img/vista_centro_comercio.jpg');"></div>
+  </div>
+
+  <div class="hero-overlay"></div>
+  <div class="hero-gradient"></div>
+
+  <div class="hero-content reveal">
+      <p style="font-size: 1.6rem;">
+      <b>Centro empresarial que integra comercio, oficinas y servicios.</b>
+      </p>
+  </div>
+
+  <!-- <button class="hero-nav hero-prev" aria-label="Imagen anterior">&#10094;</button>
+  <button class="hero-nav hero-next" aria-label="Imagen siguiente">&#10095;</button> -->
+
+  <div class="hero-dots">
+    <span class="hero-dot active" data-slide="0"></span>
+    <span class="hero-dot" data-slide="1"></span>
+    <span class="hero-dot" data-slide="2"></span>
+    <span class="hero-dot" data-slide="3"></span>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Explorar</span>
+  </div>
+</section>
+
+ <!-- SOBRE -->
+<section id="sobre" class="section section-light reveal">
+  <div class="about-split">
+    <div class="section-intro about-text">
+      <h2>Plaza Concentro</h2>
+      <p>
+       Un centro empresarial diseñado para ofrecer una experiencia corporativa distinguida, integrando espacios comerciales, oficinas corporativas y servicios especializados en un entorno moderno, funcional y estratégicamente conectado.
+      </p>
+    </div>
+
+    <div class="about-image">
+      <img src="img/parque_concentro.jpeg" alt="Vista de Plaza Concentro">
+    </div>
+  </div>
+</section>
+
+  <!-- DIRECTORIO -->
+  <section id="directorio" class="section section-dark reveal">
+    <div class="section-intro center">
+      <span class="section-label"></span>
+      <h2>Directorio de Negocios</h2>
+      <p>Descubre los espacios y servicios que forman parte de la experiencia Plaza Concentro.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card" id="restaurantes">
+        <div class="card-number"><i class="fa-solid fa-utensils"></i></div>
+        <h3>Restaurantes</h3>
+        <p>Descubre las opciones gastronómicas de la plaza.</p>
+        <a href="#contacto" class="card-btn">Más información</a>
+      </div>
+
+      <div class="card" id="oficinas">
+        <div class="card-number"><i class="fa-solid fa-building"></i></div>
+        <h3>Oficinas</h3>
+        <p>Empresas y corporativos dentro del centro empresarial.</p>
+        <a href="#contacto" class="card-btn">Más información</a>
+      </div>
+
+      <div class="card" id="servicios">
+        <div class="card-number"><i class="fa-solid fa-briefcase"></i></div>
+        <h3>Servicios</h3>
+        <p>Servicios profesionales y negocios especializados.</p>
+        <a href="#contacto" class="card-btn">Más información</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAPA -->
+ 
+  <section id="mapa" class="section mapa-section">
+    <div class="section-intro center">
+      <span class="section-label">Ubicación</span>
+      <h2>Mapa de la Plaza</h2>
+      <p>Consulta la ubicación de los negocios, oficinas y servicios dentro del complejo.</p>
+    </div>
+
+    <div class="mapa-card mapa-tabs-card">
+      <div class="mapa-tabs">
+        <button class="mapa-tab active" data-map="baja">Planta Baja</button>
+        <button class="mapa-tab" data-map="alta">Planta Alta</button>
+      </div>
+
+      <div class="mapa-viewer">
+        <div class="mapa-panel active" id="mapa-baja">
+          <img src="img/mapa-planta-baja.png" alt="Mapa Planta Baja Plaza Concentro" class="mapa-img">
+        </div>
+
+        <div class="mapa-panel" id="mapa-alta">
+          <img src="img/mapa-planta-alta.png" alt="Mapa Planta Alta Plaza Concentro" class="mapa-img">
+        </div>
+      </div>
+
+      <div class="mapa-overlay mapa-overlay-static">
+        <div class="mapa-icon"></div>
+        <!-- <h3>Explora Plaza Concentro</h3>
+        <p>
+          Revisa la distribución de locales, oficinas y servicios por nivel.
+        </p> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- RENTA -->
+ <section id="renta" class="section section-gold">
+  <div class="split-content">
+    <div class="split-text">
+      
+      <h2>Renta de Locales</h2>
+      <p>¿Quieres establecer tu negocio en Plaza Concentro?</p>
+
+      <p>Espacios disponibles para:</p>
+
+      <ul class="renta-lista">
+        <li>Oficinas</li>
+        <li>Comercio</li>
+        <li>Bodegas</li>
+      </ul>
+
+      <a class="btn-renta large" href="#contacto">Solicitar Información</a>
+    </div>
+
+    <div class="split-visual" id="instalaciones">
+      <div class="visual-box"></div>
+    </div>
+  </div>
+</section>
+
+  <!-- GALERÍA -->
+<section id="galeria" class="section section-light reveal">
+  <div class="section-intro center">
+    <span class="section-label"></span>
+    <h2>Galería</h2>
+  </div>
+
+  <div class="galeria-cascada" id="galeriaCascada">
+    <div class="gallery-column gallery-column-left"></div>
+    <div class="gallery-column gallery-column-right"></div>
+  </div>
+</section>
+
+
+<!-- CONTACTO -->
+<section id="contacto" class="section contact-section reveal">
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <span class="section-label"></span>
+      <h2>Contáctanos</h2>
+      <p>
+        Conoce más sobre Plaza Concentro, su directorio y las oportunidades
+        para tu negocio dentro del complejo.
+      </p>
+
+      <div class="contact-icons">
+        <a 
+          href="https://www.facebook.com/Concentro.CentrodeNegocios?locale=es_LA" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label="Facebook Plaza Concentro"
+          class="contact-social-icon"
+        >
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+
+        <a 
+          href="mailto:correo@plazaconcentro.com" 
+          aria-label="Enviar correo a Plaza Concentro"
+          class="contact-social-icon"
+        >
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+
+    <form class="contact-form" action="api/enviar-contacto.php" method="POST">
+      <input type="text" name="nombre" placeholder="Nombre" required>
+      <input type="email" name="correo" placeholder="Correo" required>
+      <input type="tel" name="telefono" placeholder="Teléfono">
+      <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</section>
+  <footer>
+    <p>© Plaza Concentro – Centro de Negocios</p>
+  </footer>
+
+</body>
+<script src="js/script.js"></script>
+</html>
