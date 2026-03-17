@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: index.html');
+    header('Location: ../index.html');
     exit;
 }
 
@@ -26,7 +26,7 @@ $cuerpo .= "Correo: " . $correo . "\n";
 $cuerpo .= "Teléfono: " . $telefono . "\n";
 $cuerpo .= "Mensaje:\n" . $mensaje . "\n";
 
-$headers = "From: no-reply@tudominio.com\r\n";
+$headers = "From: no-reply@plaza-concentro.test.ingrivera.com\r\n";
 $headers .= "Reply-To: " . $correo . "\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
