@@ -187,18 +187,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const revealItems = document.querySelectorAll(".reveal");
   const galleryItems = document.querySelectorAll(".gallery-item");
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    } else {
-      entry.target.classList.remove("visible");
-    }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      } else {
+        entry.target.classList.remove("visible");
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: "0px 0px -40px 0px"
   });
-}, {
-  threshold: 0.12,
-  rootMargin: "0px 0px -40px 0px"
-});
 
   revealItems.forEach((item) => observer.observe(item));
 
@@ -222,4 +222,41 @@ const observer = new IntersectionObserver((entries) => {
       document.getElementById(`mapa-${target}`)?.classList.add('active');
     });
   });
+
+  // FORMULARIO WEB3FORMS
+  const form = document.getElementById('contact-form');
+  const resultado = document.getElementById('resultado-formulario');
+
+  if (form && resultado) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      resultado.className = 'form-message';
+      resultado.textContent = 'Enviando mensaje...';
+      resultado.classList.add('show');
+
+      try {
+        const formData = new FormData(form);
+
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          resultado.textContent = 'Mensaje enviado correctamente.';
+          resultado.classList.add('success');
+          form.reset();
+        } else {
+          resultado.textContent = 'No se pudo enviar el mensaje.';
+          resultado.classList.add('error');
+        }
+      } catch (error) {
+        resultado.textContent = 'Ocurrió un error al enviar el formulario.';
+        resultado.classList.add('error');
+      }
+    });
+  }
 });
