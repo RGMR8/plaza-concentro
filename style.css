@@ -24,11 +24,26 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Evita desbordes horizontales */
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+}
+
+/* Seguridad general para imágenes y medios */
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* HEADER */
@@ -595,6 +610,7 @@ body {
   border-color: var(--accent);
   transform: translateY(-3px);
 }
+
 .section-intro p,
 .split-text p,
 .contact-info p {
@@ -1306,23 +1322,7 @@ footer p {
 
 /* =========================
    RESPONSIVE GLOBAL FIXES
-   Pegar al FINAL del style.css
    ========================= */
-
-/* Seguridad general para imágenes y medios */
-img,
-video,
-iframe {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Evita desbordes horizontales */
-html,
-body {
-  overflow-x: hidden;
-}
 
 /* Tablet grande */
 @media (max-width: 1100px) {
@@ -1402,6 +1402,14 @@ body {
     padding: 22px 18px 28px;
   }
 
+  .sidebar a {
+    font-size: 0.95rem;
+  }
+
+  .submenu a {
+    font-size: 0.88rem;
+  }
+
   .hero {
     min-height: 88vh;
     padding: 120px 20px 72px;
@@ -1410,6 +1418,11 @@ body {
 
   .hero-content {
     max-width: 100%;
+  }
+
+  .hero-tag {
+    font-size: 0.74rem;
+    letter-spacing: 0.16em;
   }
 
   .hero h1 {
@@ -1433,7 +1446,8 @@ body {
   .btn-outline,
   .btn-renta,
   .btn-mapa,
-  .contact-form button {
+  .contact-form button,
+  .card-btn {
     width: 100%;
   }
 
@@ -1562,6 +1576,11 @@ body {
     font-size: 0.92rem;
   }
 
+  .mapa-overlay .btn-mapa {
+    width: 100%;
+    max-width: 280px;
+  }
+
   .galeria-cascada {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -1606,6 +1625,22 @@ body {
     font-size: 0.96rem;
   }
 
+  .contact-icons {
+    margin-top: 32px;
+    gap: 18px;
+    justify-content: flex-start;
+  }
+
+  .contact-social-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.05rem;
+  }
+
+  .renta-lista li {
+    font-size: 0.98rem;
+  }
+
   footer {
     padding: 22px 20px;
   }
@@ -1639,6 +1674,11 @@ body {
     padding: 108px 16px 64px;
   }
 
+  .hero-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+  }
+
   .hero h1 {
     font-size: clamp(1.7rem, 9vw, 2.5rem);
   }
@@ -1669,6 +1709,19 @@ body {
     padding: 8px;
   }
 
+  .mapa-overlay {
+    padding: 16px;
+  }
+
+  .mapa-overlay h3 {
+    font-size: 1.2rem;
+  }
+
+  .mapa-overlay p {
+    font-size: 0.88rem;
+    margin-bottom: 18px;
+  }
+
   .visual-box {
     min-height: 220px;
   }
@@ -1688,8 +1741,43 @@ body {
     padding: 20px 16px;
   }
 
+  .contact-icons {
+    margin-top: 24px;
+    gap: 14px;
+    justify-content: center;
+  }
+
+  .contact-social-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+
   .sidebar {
     width: 92%;
     padding: 20px 16px 24px;
+  }
+
+  .sidebar-brand {
+    font-size: 0.82rem;
+    letter-spacing: 0.16em;
+  }
+
+  .sidebar a {
+    font-size: 0.92rem;
+    padding: 14px 0;
+  }
+
+  .submenu {
+    padding-left: 10px;
+  }
+
+  .submenu a {
+    font-size: 0.85rem;
+    padding: 8px 0;
+  }
+
+  .renta-lista li {
+    font-size: 0.94rem;
   }
 }
