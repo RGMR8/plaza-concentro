@@ -39,8 +39,9 @@
         </a>
         <ul class="submenu">
           <li><a href="#sobre" onclick="document.getElementById('sidebar').classList.remove('open')">Sobre Concentro</a></li>
-          <li><a href="#servicios" onclick="document.getElementById('sidebar').classList.remove('open')">Servicios</a></li>
           <li><a href="#instalaciones" onclick="document.getElementById('sidebar').classList.remove('open')">Instalaciones</a></li>
+          <li><a href="#servicios" onclick="document.getElementById('sidebar').classList.remove('open')">Servicios</a></li>
+          <li><a href="#renta" onclick="document.getElementById('sidebar').classList.remove('open')">Renta de Locales</a></li>
         </ul>
       </li>
 
@@ -118,6 +119,22 @@
   </div>
 </section>
 
+<!-- INSTALACIONES -->
+<section id="instalaciones" class="section section-light reveal">
+  <div class="instalaciones-wrap">
+    <div class="section-intro instalaciones-intro">
+      <h2>Instalaciones</h2>
+      <p>Espacios pensados para brindar comodidad, funcionalidad y una mejor experiencia dentro de Plaza Concentro.</p>
+    </div>
+
+    <ul class="instalaciones-lista">
+      <li>Áreas comunes</li>
+      <li>Estacionamiento</li>
+      <li>Oficinas</li>
+    </ul>
+  </div>
+</section>
+
   <!-- DIRECTORIO -->
   <section id="directorio" class="section section-dark reveal">
     <div class="section-intro center">
@@ -144,7 +161,16 @@
       <div class="card" id="servicios">
         <div class="card-number"><i class="fa-solid fa-briefcase"></i></div>
         <h3>Servicios</h3>
-        <p>Servicios profesionales y negocios especializados.</p>
+
+        <ul class="servicios-lista">
+          <li>Seguridad 24/7</li>
+          <li>Limpieza</li>
+          <li>Accesos</li>
+          <li>Reciclaje</li>
+          <li>Cargadores eléctricos</li>
+          <li>Acciones ambientales</li>
+        </ul>
+
         <a href="#contacto" class="card-btn">Más información</a>
       </div>
     </div>
@@ -204,7 +230,7 @@
       <a class="btn-renta large" href="#contacto">Solicitar Información</a>
     </div>
 
-    <div class="split-visual" id="instalaciones">
+    <div class="split-visual">
       <div class="visual-box"></div>
     </div>
   </div>
