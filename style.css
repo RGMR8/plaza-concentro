@@ -825,6 +825,64 @@ iframe {
   text-decoration: none;
   font-weight: 600;
 }
+/* VIDEO */
+.video-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.video-wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--bg-light);
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 22px;
+  background: #000;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .video-section {
+    max-width: 760px;
+    padding: 0 4%;
+  }
+
+  .video-wrapper {
+    max-width: 760px;
+    border-radius: 18px;
+  }
+
+  .video-wrapper video {
+    border-radius: 18px;
+  }
+}
+
+/* Móvil */
+@media (max-width: 576px) {
+  .video-section {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .video-wrapper {
+    max-width: 100%;
+    border-radius: 14px;
+  }
+
+  .video-wrapper video {
+    border-radius: 14px;
+  }
+}
 
 /* MAPA */
 .mapa-section {
