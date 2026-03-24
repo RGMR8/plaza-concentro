@@ -159,7 +159,9 @@ document.addEventListener('DOMContentLoaded', () => {
     "img/img6.jpg",
     "img/img8.jpg",
     "img/img9.jpg",
-    "img/img10.jpg"
+    "img/galeria_1.jpeg",
+    "img/galeria_2.jpeg",
+    "img/estacionamiento.jpeg",
   ];
 
   const leftColumn = document.querySelector(".gallery-column-left");
