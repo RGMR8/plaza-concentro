@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const ASSETS = window.APP_CONFIG?.assetsUrl || '/assets/';
+
   const header = document.querySelector('.site-header');
   const headerLogo = document.getElementById('header-logo');
 
@@ -65,11 +67,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const isScrolled = window.scrollY > 60;
     header.classList.toggle('scrolled', isScrolled);
 
-    if (isScrolled) {
-      headerLogo.src = 'img/icono_logo.png';
+   if (isScrolled) {
+      headerLogo.src = `${ASSETS}img/icono_logo.png`;
       headerLogo.classList.add('logo-icon-only');
     } else {
-      headerLogo.src = 'img/logo_negro.png';
+      headerLogo.src = `${ASSETS}img/logo_negro.png`;
       headerLogo.classList.remove('logo-icon-only');
     }
   };
@@ -150,19 +152,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const imagenesGaleria = [
-    "img/img11.jpg",
-    "img/img2.jpg",
-    "img/img3.jpg",
-    "img/img4.jpg",
-    "img/img5.jpg",
-    "img/img6.jpg",
-    "img/img8.jpg",
-    "img/img9.jpg",
-    "img/galeria_1.jpeg",
-    "img/galeria_2.jpeg",
-    "img/estacionamiento.jpeg",
-  ];
+const imagenesGaleria = [
+  `${ASSETS}img/img11.jpg`,
+  `${ASSETS}img/img2.jpg`,
+  `${ASSETS}img/img3.jpg`,
+  `${ASSETS}img/img4.jpg`,
+  `${ASSETS}img/img5.jpg`,
+  `${ASSETS}img/img6.jpg`,
+  `${ASSETS}img/img8.jpg`,
+  `${ASSETS}img/img9.jpg`,
+  `${ASSETS}img/galeria_1.jpeg`,
+  `${ASSETS}img/galeria_2.jpeg`,
+  `${ASSETS}img/estacionamiento.jpeg`,
+];
 
   const leftColumn = document.querySelector(".gallery-column-left");
   const rightColumn = document.querySelector(".gallery-column-right");

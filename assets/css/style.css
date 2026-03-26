@@ -1131,7 +1131,7 @@ iframe {
   border-radius: 28px;
   background:
     linear-gradient(rgba(255,255,255,0.10), rgba(245,237,225,0.52)),
-    url('img/img1.jpg') center center / cover no-repeat;
+    var(--visual-box-bg) center center / cover no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
