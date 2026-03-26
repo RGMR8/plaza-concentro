@@ -652,6 +652,38 @@ footer p {
   font-size: 0.9rem;
 }
 
+/* Mapa */
+
+.detail-map-wrap {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.detail-map-wrap .mapa-section {
+  padding: 0;
+  background: transparent;
+}
+
+.detail-map-wrap .section-intro {
+  margin-bottom: 1.2rem;
+}
+
+.detail-map-wrap .section-intro.center {
+  text-align: left;
+}
+
+.detail-map-wrap .mapa-card {
+  box-shadow: var(--shadow);
+}
+
+.detail-map-wrap .mapa-tabs-card {
+  padding: 18px;
+}
+
+.detail-map-wrap .mapa-viewer {
+  height: 340px;
+}
+
 /* =========================
    RESPONSIVE
    ========================= */

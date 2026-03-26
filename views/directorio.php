@@ -66,9 +66,13 @@
               <li><i class="fa-solid fa-envelope"></i> <span id="detailEmail">Correo no disponible</span></li>
             </ul>
 
-            <div class="detail-actions">
+            <!-- <div class="detail-actions">
               <a id="detailMapLink" href="<?= BASE_URL ?>index.php#mapa" class="card-btn">Ver mapa</a>
-            </div>
+            </div> -->
+          </div>
+
+          <div class="detail-map-wrap">
+            <?php require_once VIEWS_PATH . 'componentes/concentro-map.php'; ?>
           </div>
         </article>
       </div>
