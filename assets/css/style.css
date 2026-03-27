@@ -1408,6 +1408,32 @@ footer p {
 }
 
 /* =========================
+   JUSTIFICACIÓN DE TEXTO
+   ========================= */
+.about-text p,
+.split-text p,
+.area-comun-content p,
+.instalacion-content p,
+.section-intro p {
+  text-align: justify;
+}
+
+#inicio .hero-content,
+#inicio .hero-content p,
+#inicio .hero-content span,
+.card p,
+.contact-info p,
+.renta-lista li,
+.area-comun-list li,
+.instalacion-beneficios li,
+h1, h2, h3, h4, h5, h6,
+button,
+label,
+a {
+  text-align: left;
+}
+
+/* =========================
    ANIMACIONES
    ========================= */
 @keyframes fadeUp {

@@ -15,9 +15,10 @@
     </aside>
 
     <section class="directorio-main">
-      <div class="directorio-toolbar directorio-panel">
+      <div class="directorio-toolbar" role="search" aria-label="Buscar empresa">
         <div class="search-block">
           <label for="storeSearch">Busca una empresa</label>
+
           <div class="search-input-wrap">
             <input
               type="text"
@@ -40,42 +41,65 @@
           </div>
 
           <ul id="storeList" class="store-list"></ul>
+
           <p id="emptyState" class="empty-state" hidden>
             No encontramos coincidencias para tu búsqueda.
           </p>
         </div>
 
-        <article class="directorio-detail directorio-panel" id="storeDetail">
-          <div class="detail-media">
-            <img id="detailImage" src="<?= ASSETS_URL ?>img/oficina.jpeg" alt="Empresa destacada" />
-          </div>
-
-          <div class="detail-body">
-            <div class="detail-top">
-              <span class="detail-tag" id="detailCategory">Categoría</span>
-              <h2 id="detailName">Selecciona una empresa</h2>
-              <p id="detailDescription">
-                Aquí se mostrará la información del negocio seleccionado dentro del directorio.
-              </p>
+        <div class="directorio-detail-stack">
+          <article class="directorio-detail directorio-panel" id="storeDetail">
+            <div class="detail-media">
+              <img
+                id="detailImage"
+                src="<?= ASSETS_URL ?>img/oficina.jpeg"
+                alt="Empresa destacada"
+              />
             </div>
 
-            <ul class="detail-meta">
-              <li><i class="fa-solid fa-location-dot"></i> <span id="detailLocation">Ubicación pendiente</span></li>
-              <li><i class="fa-solid fa-phone"></i> <span id="detailPhone">Información no disponible</span></li>
-              <li><i class="fa-solid fa-clock"></i> <span id="detailHours">Horario no disponible</span></li>
-              <li><i class="fa-solid fa-envelope"></i> <span id="detailEmail">Correo no disponible</span></li>
-            </ul>
+            <div class="detail-body">
+              <div class="detail-top">
+                <span class="detail-tag" id="detailCategory">Categoría</span>
+                <h2 id="detailName">Selecciona una empresa</h2>
+                <p id="detailDescription">
+                  Aquí se mostrará la información del negocio seleccionado dentro del directorio.
+                </p>
+              </div>
 
-            <!-- <div class="detail-actions">
-              <a id="detailMapLink" href="<?= BASE_URL ?>index.php#mapa" class="card-btn">Ver mapa</a>
-            </div> -->
-          </div>
+              <ul class="detail-meta">
+                <li>
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span id="detailLocation">Ubicación pendiente</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-phone"></i>
+                  <span id="detailPhone">Información no disponible</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-clock"></i>
+                  <span id="detailHours">Horario no disponible</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-envelope"></i>
+                  <span id="detailEmail">Correo no disponible</span>
+                </li>
+              </ul>
 
-          <div class="detail-map-wrap">
-            <?php require_once VIEWS_PATH . 'componentes/concentro-map.php'; ?>
-          </div>
-        </article>
+              <!--
+              <div class="detail-actions">
+                <a id="detailMapLink" href="<?= BASE_URL ?>index.php#mapa" class="card-btn">
+                  Ver mapa
+                </a>
+              </div>
+              -->
+            </div>
+          </article>
+        </div>
       </div>
+
+      <section class="directorio-map-wide">
+        <?php require_once VIEWS_PATH . 'componentes/concentro-map.php'; ?>
+      </section>
     </section>
   </section>
 </main>

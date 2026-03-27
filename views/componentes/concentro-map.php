@@ -1,29 +1,48 @@
-<!-- MAPA -->
-<section id="mapa" class="section mapa-section">
-  <div class="section-intro center">
-    <span class="section-label"></span>
-    <h2>Mapa de la Plaza</h2>
-    <p>Consulta la ubicación de los negocios, oficinas y servicios dentro del complejo.</p>
+<!-- MAPA DIRECTORIO -->
+<section class="directorio-mapa-shell">
+  <div class="directorio-mapa-nav" role="tablist" aria-label="Seleccionar plano">
+    <button
+      class="directorio-mapa-tab is-active"
+      type="button"
+      role="tab"
+      aria-selected="true"
+      aria-controls="directorio-mapa-baja"
+      data-dir-map="baja">
+      Planta Baja
+    </button>
+
+    <button
+      class="directorio-mapa-tab"
+      type="button"
+      role="tab"
+      aria-selected="false"
+      aria-controls="directorio-mapa-alta"
+      data-dir-map="alta">
+      Planta Alta
+    </button>
   </div>
 
-  <div class="mapa-card mapa-tabs-card">
-    <div class="mapa-tabs">
-      <button class="mapa-tab active" data-map="baja">Planta Baja</button>
-      <button class="mapa-tab" data-map="alta">Planta Alta</button>
+  <div class="directorio-mapa-stage">
+    <div
+      class="directorio-mapa-panel is-active"
+      id="directorio-mapa-baja"
+      role="tabpanel"
+      aria-hidden="false">
+      <img
+        src="<?= ASSETS_URL ?>img/mapa-planta-baja.png"
+        alt="Mapa de Planta Baja de Plaza Concentro"
+        class="directorio-mapa-img">
     </div>
 
-    <div class="mapa-viewer">
-      <div class="mapa-panel active" id="mapa-baja">
-        <img src="<?= ASSETS_URL ?>img/mapa-planta-baja.png" alt="Mapa Planta Baja Plaza Concentro" class="mapa-img">
-      </div>
-
-      <div class="mapa-panel" id="mapa-alta">
-        <img src="<?= ASSETS_URL ?>img/mapa-planta-alta.png" alt="Mapa Planta Alta Plaza Concentro" class="mapa-img">
-      </div>
-    </div>
-
-    <div class="mapa-overlay mapa-overlay-static">
-      <div class="mapa-icon"></div>
+    <div
+      class="directorio-mapa-panel"
+      id="directorio-mapa-alta"
+      role="tabpanel"
+      aria-hidden="true">
+      <img
+        src="<?= ASSETS_URL ?>img/mapa-planta-alta.png"
+        alt="Mapa de Planta Alta de Plaza Concentro"
+        class="directorio-mapa-img">
     </div>
   </div>
 </section>

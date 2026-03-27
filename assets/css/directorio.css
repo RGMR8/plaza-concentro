@@ -49,7 +49,7 @@ body {
 }
 
 .directorio-hero {
-  width: min(1200px, calc(100% - 48px));
+  width: min(1360px, calc(100% - 40px));
   margin: 0 auto 2.2rem;
   padding: 2.5rem 2.6rem;
   border-radius: 34px;
@@ -105,7 +105,7 @@ body {
    ========================= */
 
 .directorio-layout {
-  width: min(1200px, calc(100% - 48px));
+  width: min(1360px, calc(100% - 40px));
   margin: 0 auto 4rem;
   display: grid;
   grid-template-columns: 240px 1fr;
@@ -126,7 +126,7 @@ body {
 
 .directorio-content {
   display: grid;
-  grid-template-columns: 0.95fr 1.2fr;
+  grid-template-columns: minmax(320px, 0.82fr) minmax(420px, 1.35fr);
   gap: 1.5rem;
   align-items: start;
 }
@@ -143,45 +143,63 @@ body {
    ========================= */
 
 .directorio-toolbar {
-  padding: 1.35rem 1.45rem;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .search-block {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 0;
 }
 
 .search-block label {
-  font-size: clamp(1.35rem, 2vw, 2.2rem);
-  font-weight: 700;
-  color: var(--directorio-text);
-  letter-spacing: -0.02em;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .search-input-wrap {
   position: relative;
   display: flex;
   align-items: center;
+  width: 100%;
+  max-width: 980px;
 }
 
 .search-input-wrap input {
   width: 100%;
-  height: 62px;
-  padding: 0 3.4rem 0 1.2rem;
-  border: 1px solid transparent;
-  border-radius: 18px;
-  background: var(--directorio-surface-soft);
+  height: 68px;
+  padding: 0 4.3rem 0 1.55rem;
+  border: 1px solid rgba(110, 86, 62, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
   color: var(--directorio-text);
-  font-size: 0.98rem;
+  font-size: 1rem;
   font-family: inherit;
+  box-shadow: 0 10px 28px rgba(62, 40, 18, 0.05);
   transition: border-color var(--directorio-transition),
               box-shadow var(--directorio-transition),
-              background var(--directorio-transition);
+              background var(--directorio-transition),
+              transform var(--directorio-transition);
 }
 
 .search-input-wrap input::placeholder {
-  color: rgba(74, 59, 46, 0.55);
+  color: rgba(74, 59, 46, 0.48);
+}
+
+.search-input-wrap input:hover {
+  border-color: rgba(166, 127, 91, 0.22);
+  box-shadow: 0 14px 32px rgba(62, 40, 18, 0.07);
 }
 
 .search-input-wrap input:focus {
@@ -196,7 +214,7 @@ body {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   position: absolute;
-  right: 1.1rem;
+  right: 1.35rem;
   color: var(--directorio-accent-strong);
   pointer-events: none;
   opacity: 0.9;
@@ -204,7 +222,7 @@ body {
 
 #clearSearch {
   position: absolute;
-  right: 2.7rem;
+  right: 3.1rem;
   width: 32px;
   height: 32px;
   border: 0;
@@ -329,6 +347,14 @@ body {
 /* =========================
    DETALLE
    ========================= */
+
+.directorio-detail-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 0;
+  width: 100%;
+}
 
 .directorio-detail {
   overflow: hidden;
@@ -652,36 +678,113 @@ footer p {
   font-size: 0.9rem;
 }
 
-/* Mapa */
+/* =========================================================
+   MAPA EXCLUSIVO DEL DIRECTORIO
+   ========================================================= */
 
-.detail-map-wrap {
+.directorio-map-wide {
   width: 100%;
-  margin-top: 2rem;
+  margin: 0 auto;
+  padding-top: 0.25rem;
 }
 
-.detail-map-wrap .mapa-section {
+.directorio-map-wide .directorio-mapa-shell {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
   padding: 0;
-  background: transparent;
 }
 
-.detail-map-wrap .section-intro {
-  margin-bottom: 1.2rem;
+.directorio-mapa-shell {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0;
 }
 
-.detail-map-wrap .section-intro.center {
-  text-align: left;
+.directorio-mapa-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
 
-.detail-map-wrap .mapa-card {
-  box-shadow: var(--shadow);
+.directorio-mapa-tab {
+  appearance: none;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.82);
+  color: rgba(34, 34, 34, 0.72);
+  border-radius: 999px;
+  padding: 0.82rem 1.2rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-.detail-map-wrap .mapa-tabs-card {
-  padding: 18px;
+.directorio-mapa-tab:hover {
+  transform: translateY(-1px);
+  border-color: rgba(245, 132, 37, 0.28);
+  color: #1f1f1f;
 }
 
-.detail-map-wrap .mapa-viewer {
-  height: 340px;
+.directorio-mapa-tab.is-active {
+  background: #f58425;
+  border-color: #f58425;
+  color: #fff;
+  box-shadow: 0 14px 34px rgba(245, 132, 37, 0.22);
+}
+
+.directorio-mapa-stage {
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.54);
+  border: 1px solid rgba(0, 0, 0, 0.045);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
+  overflow: hidden;
+}
+
+.directorio-mapa-panel {
+  display: none;
+  position: relative;
+  z-index: 1;
+}
+
+.directorio-mapa-panel.is-active {
+  display: block;
+  animation: directorioMapaFade 0.28s ease;
+}
+
+.directorio-mapa-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 20px;
+  background: #f5f5f5;
+}
+
+@keyframes directorioMapaFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* =========================
@@ -715,6 +818,22 @@ footer p {
   }
 }
 
+@media (max-width: 1024px) {
+  .directorio-mapa-shell,
+  .directorio-map-wide .directorio-mapa-shell {
+    max-width: 100%;
+  }
+
+  .directorio-mapa-stage {
+    padding: 0.9rem;
+    border-radius: 24px;
+  }
+
+  .directorio-mapa-img {
+    border-radius: 18px;
+  }
+}
+
 @media (max-width: 768px) {
   .directorio-page {
     padding-top: 120px;
@@ -740,7 +859,6 @@ footer p {
     line-height: 1.7;
   }
 
-  .directorio-toolbar,
   .directorio-results,
   .detail-body,
   .category-panel {
@@ -748,13 +866,19 @@ footer p {
     padding-right: 1rem;
   }
 
-  .search-block label {
-    font-size: 1.5rem;
+  .directorio-toolbar {
+    padding: 0;
   }
 
   .search-input-wrap input {
-    height: 56px;
+    height: 60px;
+    padding-left: 1.2rem;
+    padding-right: 4rem;
     font-size: 0.95rem;
+  }
+
+  #clearSearch {
+    right: 2.9rem;
   }
 
   .results-head {
@@ -779,6 +903,27 @@ footer p {
   .detail-actions .card-btn-outline {
     width: 100%;
   }
+
+  .directorio-mapa-nav {
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .directorio-mapa-tab {
+    width: 100%;
+    max-width: 260px;
+    justify-content: center;
+    padding: 0.9rem 1rem;
+  }
+
+  .directorio-mapa-stage {
+    padding: 0.75rem;
+    border-radius: 22px;
+  }
+
+  .directorio-mapa-img {
+    border-radius: 16px;
+  }
 }
 
 @media (max-width: 520px) {
@@ -796,7 +941,7 @@ footer p {
   }
 
   .directorio-toolbar {
-    padding: 1rem;
+    padding: 0;
   }
 
   .directorio-results {
@@ -832,5 +977,39 @@ footer p {
   .active-category-card {
     min-height: 56px;
     padding: 0.85rem 0.95rem;
+  }
+
+  .search-input-wrap input {
+    height: 56px;
+    padding-left: 1rem;
+    padding-right: 3.8rem;
+    border-radius: 999px;
+  }
+
+  #clearSearch {
+    right: 2.75rem;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .directorio-mapa-shell {
+    margin-top: 0;
+  }
+
+  .directorio-mapa-tab {
+    max-width: none;
+    width: 100%;
+    font-size: 0.88rem;
+  }
+
+  .directorio-mapa-stage {
+    padding: 0.65rem;
+    border-radius: 18px;
+  }
+
+  .directorio-mapa-img {
+    border-radius: 14px;
   }
 }
