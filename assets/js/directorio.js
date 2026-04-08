@@ -1,4 +1,10 @@
-const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSbo_it8B89laBlWdvI9lPKUXntzQVKWHE7awUDwlO0hO8Xaau3SGz4-4idrmUnediH_bQpublQHTLB/pub?gid=365576386&single=true&output=csv';
+const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSAAw-ZnXPZGgUlbWSm-HeOovZbsFjcN_feTY1SHYgB1b1AhNfx9nHFvMynb5kGMw/pub?gid=69587388&single=true&output=csv';
+
+const BASE_URL = ['localhost', '127.0.0.1'].includes(window.location.hostname)
+  ? `${window.location.origin}/plaza-concentro/`
+  : `${window.location.origin}/`;
+
+const FALLBACK_LOGO = `${BASE_URL}assets/img/logos/sin_logo.png`;
 
 let stores = [];
 
@@ -24,9 +30,101 @@ function normalizeText(value) {
   return String(value ?? '').trim();
 }
 
+function resolveImagePath(path) {
+  const cleanPath = normalizeText(path);
+
+  if (!cleanPath) {
+    return FALLBACK_LOGO;
+  }
+
+  if (/^https?:\/\//i.test(cleanPath)) {
+    return cleanPath;
+  }
+
+  if (cleanPath.startsWith('/assets/')) {
+    return `${BASE_URL}${cleanPath.replace(/^\/+/, '')}`;
+  }
+
+  if (cleanPath.startsWith('assets/')) {
+    return `${BASE_URL}${cleanPath}`;
+  }
+
+  if (cleanPath.startsWith('/img/')) {
+    return `${BASE_URL}assets/${cleanPath.replace(/^\/+/, '')}`;
+  }
+
+  if (cleanPath.startsWith('img/')) {
+    return `${BASE_URL}assets/${cleanPath}`;
+  }
+
+  return `${BASE_URL}${cleanPath.replace(/^\/+/, '')}`;
+}
+
+function setDetailImage(src, altText = 'Empresa destacada') {
+  if (!detailImage) return;
+
+  detailImage.alt = altText;
+  detailImage.onerror = function () {
+    this.onerror = null;
+    this.src = FALLBACK_LOGO;
+  };
+  detailImage.src = src || FALLBACK_LOGO;
+}
+
 function toggleDirectoryMap(show) {
   if (!directorioMapSection) return;
   directorioMapSection.hidden = !show;
+}
+
+function getPlantaFromLocation(location) {
+  const text = normalizeText(location).toUpperCase();
+
+  if (!text) return 'unknown';
+
+  const PLANTA_BAJA = ['B', 'C', 'D', 'E', 'F', 'J'];
+  const PLANTA_ALTA = ['A', 'G', 'H', 'I', 'L', 'M', 'N'];
+
+  const matches = text.match(/[A-Z]/g) || [];
+
+  let hasBaja = false;
+  let hasAlta = false;
+
+  matches.forEach((letter) => {
+    if (PLANTA_BAJA.includes(letter)) hasBaja = true;
+    if (PLANTA_ALTA.includes(letter)) hasAlta = true;
+  });
+
+  if (hasBaja && hasAlta) return 'mixed';
+  if (hasBaja) return 'baja';
+  if (hasAlta) return 'alta';
+
+  return 'unknown';
+}
+
+function activateMapByPlanta(planta) {
+  const tabs = document.querySelectorAll('.directorio-mapa-tab');
+  const panels = document.querySelectorAll('.directorio-mapa-panel');
+
+  if (!tabs.length || !panels.length) return;
+
+  let targetKey = null;
+
+  if (planta === 'baja') targetKey = 'baja';
+  if (planta === 'alta') targetKey = 'alta';
+
+  if (!targetKey) return;
+
+  tabs.forEach((tab) => {
+    const isActive = tab.dataset.dirMap === targetKey;
+    tab.classList.toggle('is-active', isActive);
+    tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+  });
+
+  panels.forEach((panel) => {
+    const isActive = panel.id === `directorio-mapa-${targetKey}`;
+    panel.classList.toggle('is-active', isActive);
+    panel.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+  });
 }
 
 function csvToArray(text) {
@@ -120,20 +218,20 @@ function buildStoresFromRows(rows) {
         category,
         description,
         location,
-        image: image || 'img/oficina.jpeg',
+        image: resolveImagePath(image),
+        planta: getPlantaFromLocation(location),
         status,
         phone: 'Información no disponible',
         hours: 'Horario no disponible',
         email: 'Correo no disponible',
-        mapLink: 'index.html#mapa'
+        mapLink: `${BASE_URL}#mapa`
       };
     })
     .filter(store => store.name && store.status === 'SI');
 }
 
 function renderStoreDetail(store) {
-  detailImage.src = store.image || 'img/oficina.jpeg';
-  detailImage.alt = store.name || 'Empresa destacada';
+  setDetailImage(store.image || FALLBACK_LOGO, store.name || 'Empresa destacada');
   detailCategory.textContent = store.category || 'General';
   detailName.textContent = store.name || 'Selecciona una empresa';
   detailDescription.textContent = store.description || 'Información disponible próximamente.';
@@ -141,8 +239,9 @@ function renderStoreDetail(store) {
   detailPhone.textContent = store.phone || 'Información no disponible';
   detailHours.textContent = store.hours || 'Horario no disponible';
   detailEmail.textContent = store.email || 'Correo no disponible';
-  detailMapLink.href = store.mapLink || 'index.html#mapa';
+  detailMapLink.href = store.mapLink || `${BASE_URL}#mapa`;
   renderActiveCategory(store.category || 'General');
+  activateMapByPlanta(store.planta);
 }
 
 function renderStoreList(filteredStores) {
@@ -162,8 +261,9 @@ function renderStoreList(filteredStores) {
       phone: 'Información no disponible',
       hours: 'Horario no disponible',
       email: 'Correo no disponible',
-      image: 'img/oficina.jpeg',
-      mapLink: 'index.html#mapa'
+      image: FALLBACK_LOGO,
+      planta: 'unknown',
+      mapLink: `${BASE_URL}#mapa`
     });
     return;
   }
@@ -223,8 +323,9 @@ function filterStores() {
       phone: 'Información no disponible',
       hours: 'Horario no disponible',
       email: 'Correo no disponible',
-      image: 'img/oficina.jpeg',
-      mapLink: 'index.html#mapa'
+      image: FALLBACK_LOGO,
+      planta: 'unknown',
+      mapLink: `${BASE_URL}#mapa`
     });
 
     return;
@@ -270,8 +371,9 @@ async function loadStoresFromSheet() {
       phone: 'Información no disponible',
       hours: 'Horario no disponible',
       email: 'Correo no disponible',
-      image: 'img/oficina.jpeg',
-      mapLink: 'index.html#mapa'
+      image: FALLBACK_LOGO,
+      planta: 'unknown',
+      mapLink: `${BASE_URL}#mapa`
     });
   }
 }
