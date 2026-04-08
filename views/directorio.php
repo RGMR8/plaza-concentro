@@ -52,7 +52,7 @@
             <div class="detail-media">
               <img
                 id="detailImage"
-                src="<?= ASSETS_URL ?>img/oficina.jpeg"
+                src="<?= ASSETS_URL ?>img/logos/sin_logo.png"
                 alt="Empresa destacada"
               />
             </div>
