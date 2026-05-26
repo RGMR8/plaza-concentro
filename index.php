@@ -21,8 +21,8 @@ include __DIR__ . '/views/templates/header.php';
 
   <div class="hero-content reveal">
     <p>
-      <span class="hero-line-1">Aquí Es Donde Tu Negocio</span>
-      <span class="hero-line-2">Toma <span class="hero-impulso">Impulso.</span></span>
+      <span class="hero-line-1">Aquí es donde tu negocio</span>
+      <span class="hero-line-2">Toma <span class="hero-impulso">impulso.</span></span>
     </p>
   </div>
 
@@ -42,14 +42,14 @@ include __DIR__ . '/views/templates/header.php';
 <section id="sobre" class="section section-light reveal">
   <div class="about-split">
     <div class="section-intro about-text">
-      <h2>Plaza Concentro</h2>
+      <h2>Plaza concentro</h2>
       <p>
-        Plaza Concentro es un espacio diseñado para conectar personas, negocios y experiencias en un solo lugar. Ubicada estratégicamente. Se ha consolidado como un punto de encuentro ideal para quienes buscan una oferta integral de servicios y comercio. Nuestro objetivo es brindar un entorno moderno, seguro y accesible, donde cada visitante pueda encontrar lo que necesita, desde productos y servicios especializados.
+        Plaza concentro es un espacio diseñado para conectar personas, negocios y experiencias en un solo lugar. Ubicada estratégicamente, se ha consolidado como un punto de encuentro ideal para quienes buscan una oferta integral de servicios y comercio. Nuestro objetivo es brindar un entorno moderno, seguro y accesible, donde cada visitante pueda encontrar lo que necesita, desde productos y servicios especializados.
       </p>
     </div>
 
     <div class="about-image">
-      <img src="<?= ASSETS_URL ?>img/parque_concentro.jpeg" alt="Vista de Plaza Concentro">
+      <img src="<?= ASSETS_URL ?>img/parque_concentro.jpeg" alt="Vista de plaza concentro">
     </div>
   </div>
 </section>
@@ -68,7 +68,7 @@ include __DIR__ . '/views/templates/header.php';
         <span class="instalacion-tag">Estacionamiento</span>
         <h3>Comodidad y acceso en cada visita</h3>
         <p>
-          En Plaza Concentro – Centro de Negocios, contamos con un área de estacionamiento
+          En plaza concentro – centro de negocios, contamos con un área de estacionamiento
           diseñada para brindar comodidad, seguridad y fácil acceso a todos nuestros
           visitantes y usuarios.
         </p>
@@ -86,7 +86,7 @@ include __DIR__ . '/views/templates/header.php';
       </div>
 
       <div class="instalacion-image">
-        <img src="<?= ASSETS_URL ?>img/estacionamiento_2.jpeg" alt="Estacionamiento de Plaza Concentro">
+        <img src="<?= ASSETS_URL ?>img/estacionamiento_2.jpeg" alt="Estacionamiento de plaza concentro">
       </div>
     </div>
 
@@ -94,9 +94,9 @@ include __DIR__ . '/views/templates/header.php';
     <div id="area-comedor" class="area-comun-card">
       <div class="area-comun-content">
         <span class="area-comun-tag">Áreas comunes</span>
-        <h3>Un Entorno Pensado Para Tu Día a Día</h3>
+        <h3>Un entorno pensado para tu día a día</h3>
         <p>
-          En Plaza Concentro, las áreas comunes no solo conectan espacios, sino que también
+          En plaza concentro, las áreas comunes no solo conectan espacios, sino que también
           contribuyen a crear un ambiente profesional y accesible, ideal para el desarrollo
           de actividades empresariales.
         </p>
@@ -108,10 +108,10 @@ include __DIR__ . '/views/templates/header.php';
 
       <div class="area-comun-gallery">
         <div class="area-comun-gallery-item">
-          <img src="<?= ASSETS_URL ?>img/area_3.jpeg" alt="Áreas comunes de Plaza Concentro">
+          <img src="<?= ASSETS_URL ?>img/area_3.jpeg" alt="Áreas comunes de plaza concentro">
         </div>
         <div class="area-comun-gallery-item">
-          <img src="<?= ASSETS_URL ?>img/area_4.jpeg" alt="Pasillos y áreas comunes de Plaza Concentro">
+          <img src="<?= ASSETS_URL ?>img/area_4.jpeg" alt="Pasillos y áreas comunes de plaza concentro">
         </div>
       </div>
     </div>
@@ -119,9 +119,9 @@ include __DIR__ . '/views/templates/header.php';
     <!-- EMPRESAS QUE IMPULSAN CONCENTRO -->
     <div id="empresas" class="area-comun-card">
       <div class="area-comun-content">
-        <h3>Empresas que Impulsan Concentro</h3>
+        <h3>Empresas que impulsan concentro</h3>
         <p>
-          En Concentro Centro de Negocios, convergen empresas que destacan por su
+          En concentro centro de negocios, convergen empresas que destacan por su
           profesionalismo, innovación y liderazgo en sus respectivas industrias.
         </p>
         <p>
@@ -137,7 +137,7 @@ include __DIR__ . '/views/templates/header.php';
         </ul>
 
         <p>
-          Cada empresa que forma parte de Concentro aporta valor, generando un entorno dinámico
+          Cada empresa que forma parte de concentro aporta valor, generando un entorno dinámico
           donde las oportunidades de colaboración, crecimiento y networking surgen de manera natural.
         </p>
       </div>
@@ -161,7 +161,7 @@ include __DIR__ . '/views/templates/header.php';
         <span class="instalacion-tag">Oficinas</span>
         <h3>Espacios diseñados para crecer</h3>
         <p>
-          En Plaza Concentro – Centro de Negocios, nuestras oficinas están pensadas para
+          En plaza concentro – centro de negocios, nuestras oficinas están pensadas para
           brindar un entorno profesional, funcional y moderno que impulse el desarrollo de
           empresas y proyectos.
         </p>
@@ -173,8 +173,8 @@ include __DIR__ . '/views/templates/header.php';
       </div>
 
       <div class="instalacion-gallery">
-        <img src="<?= ASSETS_URL ?>img/oficina.jpeg" alt="Oficinas en Plaza Concentro">
-        <img src="<?= ASSETS_URL ?>img/oficina_2.jpeg" alt="Espacios de oficinas en Plaza Concentro">
+        <img src="<?= ASSETS_URL ?>img/oficina.jpeg" alt="Oficinas en plaza concentro">
+        <img src="<?= ASSETS_URL ?>img/oficina_2.jpeg" alt="Espacios de oficinas en plaza concentro">
       </div>
     </div>
   </div>
@@ -184,14 +184,14 @@ include __DIR__ . '/views/templates/header.php';
 <section id="directorio" class="section section-dark reveal">
   <div class="section-intro center">
     <span class="section-label"></span>
-    <h2>Directorio de Negocios</h2>
-    <p>Descubre los espacios y servicios que forman parte de la experiencia Plaza Concentro.</p>
+    <h2>Directorio de negocios</h2>
+    <p>Descubre los espacios y servicios que forman parte de la experiencia plaza concentro.</p>
   </div>
 
   <div class="cards">
     <div class="card" id="restaurantes">
       <div class="card-number"><i class="fa-solid fa-utensils"></i></div>
-      <h3>Área de Comedor</h3>
+      <h3>Área de comedor</h3>
       <p>Descubre las opciones gastronómicas de la plaza.</p>
       <a href="#area-comedor" class="card-btn">Más información</a>
     </div>
@@ -225,23 +225,23 @@ include __DIR__ . '/views/templates/header.php';
 <section id="mapa" class="section mapa-section">
   <div class="section-intro center">
     <span class="section-label"></span>
-    <h2>Mapa de la Plaza</h2>
+    <h2>Mapa de la plaza</h2>
     <p>Consulta la ubicación de los negocios, oficinas y servicios dentro del complejo.</p>
   </div>
 
   <div class="mapa-card mapa-tabs-card">
     <div class="mapa-tabs">
-      <button class="mapa-tab active" data-map="baja">Planta Baja</button>
-      <button class="mapa-tab" data-map="alta">Planta Alta</button>
+      <button class="mapa-tab active" data-map="baja">Planta baja</button>
+      <button class="mapa-tab" data-map="alta">Planta alta</button>
     </div>
 
     <div class="mapa-viewer">
       <div class="mapa-panel active" id="mapa-baja">
-        <img src="<?= ASSETS_URL ?>img/mapa-planta-baja.png" alt="Mapa Planta Baja Plaza Concentro" class="mapa-img">
+        <img src="<?= ASSETS_URL ?>img/mapa-planta-baja.png" alt="Mapa planta baja plaza concentro" class="mapa-img">
       </div>
 
       <div class="mapa-panel" id="mapa-alta">
-        <img src="<?= ASSETS_URL ?>img/mapa-planta-alta.png" alt="Mapa Planta Alta Plaza Concentro" class="mapa-img">
+        <img src="<?= ASSETS_URL ?>img/mapa-planta-alta.png" alt="Mapa planta alta plaza concentro" class="mapa-img">
       </div>
     </div>
 
@@ -257,7 +257,7 @@ include __DIR__ . '/views/templates/header.php';
     <span class="instalacion-tag">Área de comedor</span>
     <h3>Un espacio para disfrutar y conectar</h3>
     <p>
-      El área de comedor de Plaza Concentro – Centro de Negocios ha sido diseñada
+      El área de comedor de plaza concentro – centro de negocios ha sido diseñada
       como un espacio cómodo, funcional y agradable, ideal para disfrutar de una
       pausa durante la jornada laboral.
     </p>
@@ -269,7 +269,7 @@ include __DIR__ . '/views/templates/header.php';
   </div>
 
   <div class="instalacion-image">
-    <img src="<?= ASSETS_URL ?>img/img2.jpg" alt="Área de comedor de Plaza Concentro">
+    <img src="<?= ASSETS_URL ?>img/img2.jpg" alt="Área de comedor de plaza concentro">
   </div>
 </div>
 
@@ -277,8 +277,8 @@ include __DIR__ . '/views/templates/header.php';
 <section id="renta" class="section section-gold">
   <div class="split-content">
     <div class="split-text">
-      <h2>Renta de Locales</h2>
-      <p>¿Quieres establecer tu negocio en Plaza Concentro?, puede comunicarte con nosotros 3313502051.</p>
+      <h2>Renta de locales</h2>
+      <p>¿Quieres establecer tu negocio en plaza concentro? Puedes comunicarte con nosotros al 3313502051.</p>
 
       <p>Espacios disponibles para:</p>
 
@@ -288,7 +288,7 @@ include __DIR__ . '/views/templates/header.php';
         <li>Bodegas</li>
       </ul>
 
-      <a class="btn-renta large" href="#contacto">Solicitar Información</a>
+      <a class="btn-renta large" href="#contacto">Solicitar información</a>
     </div>
 
     <div class="split-visual">
@@ -317,7 +317,7 @@ include __DIR__ . '/views/templates/header.php';
 <section id="ubicacion" class="section section-light reveal">
   <div class="section-intro center">
     <h2>Encuéntranos</h2>
-    <p>Visítanos en Plaza Concentro y conoce nuestras instalaciones.</p>
+    <p>Visítanos en plaza concentro y conoce nuestras instalaciones.</p>
   </div>
 
   <div class="ubicacion-wrap">
@@ -354,7 +354,7 @@ include __DIR__ . '/views/templates/header.php';
       <span class="section-label"></span>
       <h2>Contáctanos</h2>
       <p>
-        Conoce más sobre Plaza Concentro, su directorio y las oportunidades
+        Conoce más sobre plaza concentro, su directorio y las oportunidades
         para tu negocio dentro del complejo.
       </p>
 
@@ -363,7 +363,7 @@ include __DIR__ . '/views/templates/header.php';
           href="https://www.facebook.com/Concentro.CentrodeNegocios?locale=es_LA"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Facebook Plaza Concentro"
+          aria-label="Facebook plaza concentro"
           class="contact-social-icon"
         >
           <i class="fa-brands fa-facebook-f"></i>
@@ -371,7 +371,7 @@ include __DIR__ . '/views/templates/header.php';
 
         <a
           href=""
-          aria-label="Enviar correo a Plaza Concentro"
+          aria-label="Enviar correo a plaza concentro"
           class="contact-social-icon"
         >
           <i class="fa-solid fa-envelope"></i>
@@ -384,8 +384,8 @@ include __DIR__ . '/views/templates/header.php';
 
       <form id="contact-form" class="contact-form">
         <input type="hidden" name="access_key" value="3aa2c740-624c-42da-8381-8601c1edb4e3">
-        <input type="hidden" name="subject" value="Nuevo mensaje desde Plaza Concentro">
-        <input type="hidden" name="from_name" value="Plaza Concentro Web">
+        <input type="hidden" name="subject" value="Nuevo mensaje desde plaza concentro">
+        <input type="hidden" name="from_name" value="Plaza concentro web">
 
         <input type="text" name="nombre" placeholder="Nombre" required>
         <input type="email" name="correo" placeholder="Correo" required>
