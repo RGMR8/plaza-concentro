@@ -193,15 +193,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const revealItems = document.querySelectorAll(".reveal");
   const galleryItems = document.querySelectorAll(".gallery-item");
 
-  // Observer one-shot: una vez visible, se queda visible para siempre.
-  // Antes se quitaba la clase "visible" al salir del viewport, lo que
-  // causaba que las imágenes reaparecieran con animación al volver a
-  // scrollear, dando sensación de repetición.
-  const observer = new IntersectionObserver((entries) => {
+  const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-        observer.unobserve(entry.target); // deja de observar → no vuelve a animar
+        revealObserver.unobserve(entry.target);
       }
     });
   }, {
@@ -209,11 +205,27 @@ document.addEventListener('DOMContentLoaded', () => {
     rootMargin: "0px 0px -40px 0px"
   });
 
-  revealItems.forEach((item) => observer.observe(item));
+  revealItems.forEach((item) => revealObserver.observe(item));
+
+  // Observer 2 — imágenes de galería: se re-anima cada vez que entran
+  // al viewport. Al salir pierde la clase "visible" y al volver a entrar
+  // vuelve a hacer la animación de entrada.
+  const galleryObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      } else {
+        entry.target.classList.remove("visible");
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: "0px 0px -40px 0px"
+  });
 
   galleryItems.forEach((item, index) => {
     item.style.transitionDelay = `${index * 0.10}s`;
-    observer.observe(item);
+    galleryObserver.observe(item);
   });
 
   // Tabs del mapa
