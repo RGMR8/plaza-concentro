@@ -2,7 +2,7 @@
 require_once __DIR__ . '/config/config.php';
 
 $extra_css = [];
-$extra_js = ['script.js'];
+$extra_js = [];
 
 include __DIR__ . '/views/templates/header.php';
 ?>
