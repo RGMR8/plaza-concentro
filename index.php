@@ -273,12 +273,12 @@ include __DIR__ . '/views/templates/header.php';
   </div>
 </div>
 
-<!-- RENTA -->
+<!-- RENTA 3313502051 -->
 <section id="renta" class="section section-gold">
   <div class="split-content">
     <div class="split-text">
       <h2>Renta de locales</h2>
-      <p>¿Quieres establecer tu negocio en plaza concentro? Puedes comunicarte con nosotros al 3313502051.</p>
+      <p>¿Quieres establecer tu negocio en plaza concentro? Puedes comunicarte con nosotros al numero comercial 3313987103 o al numero de recepción 3331100910 .</p>
 
       <p>Espacios disponibles para:</p>
 

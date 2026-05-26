@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isScrolled = window.scrollY > 60;
     header.classList.toggle('scrolled', isScrolled);
 
-   if (isScrolled) {
+    if (isScrolled) {
       headerLogo.src = `${ASSETS}img/icono_logo.png`;
       headerLogo.classList.add('logo-icon-only');
     } else {
@@ -152,19 +152,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-const imagenesGaleria = [
-  `${ASSETS}img/img11.jpg`,
-  `${ASSETS}img/img2.jpg`,
-  `${ASSETS}img/img3.jpg`,
-  `${ASSETS}img/img4.jpg`,
-  `${ASSETS}img/img5.jpg`,
-  `${ASSETS}img/img6.jpg`,
-  `${ASSETS}img/img8.jpg`,
-  `${ASSETS}img/img9.jpg`,
-  `${ASSETS}img/galeria_1.jpeg`,
-  `${ASSETS}img/galeria_2.jpeg`,
-  `${ASSETS}img/estacionamiento.jpeg`,
-];
+  // ===== GALERÍA =====
+  // Removidas: img2.jpg (usada en sección área de comedor),
+  //            img5.jpg e img8.jpg (usadas en hero slider),
+  //            galeria_2.jpeg (misma foto del food court que img2.jpg)
+  const imagenesGaleria = [
+    `${ASSETS}img/img11.jpg`,
+    `${ASSETS}img/img3.jpg`,
+    `${ASSETS}img/img4.jpg`,
+    `${ASSETS}img/img6.jpg`,
+    `${ASSETS}img/img9.jpg`,
+    `${ASSETS}img/galeria_1.jpeg`,
+    `${ASSETS}img/estacionamiento.jpeg`,
+  ];
 
   const leftColumn = document.querySelector(".gallery-column-left");
   const rightColumn = document.querySelector(".gallery-column-right");
@@ -177,7 +177,7 @@ const imagenesGaleria = [
 
     const img = document.createElement("img");
     img.src = src;
-    img.alt = `Galería Plaza Concentro ${index + 1}`;
+    img.alt = `Galería plaza concentro ${index + 1}`;
 
     item.appendChild(img);
 
