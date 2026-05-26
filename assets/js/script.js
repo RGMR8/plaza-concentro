@@ -153,16 +153,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ===== GALERÍA =====
-  // Removidas: img2.jpg (usada en sección área de comedor),
-  //            img5.jpg e img8.jpg (usadas en hero slider),
-  //            galeria_2.jpeg (misma foto del food court que img2.jpg)
+  // Imágenes removidas para evitar duplicados:
+  //   img2.jpg       → ya aparece en sección "área de comedor"
+  //   img5.jpg       → ya aparece en hero slider
+  //   img8.jpg       → ya aparece en hero slider
+  //   galeria_2.jpeg → mismo food court que img2.jpg
+  //   galeria_1.jpeg → mismo food court (discos de colores) que img3.jpg
   const imagenesGaleria = [
     `${ASSETS}img/img11.jpg`,
     `${ASSETS}img/img3.jpg`,
     `${ASSETS}img/img4.jpg`,
     `${ASSETS}img/img6.jpg`,
     `${ASSETS}img/img9.jpg`,
-    `${ASSETS}img/galeria_1.jpeg`,
     `${ASSETS}img/estacionamiento.jpeg`,
   ];
 
@@ -191,12 +193,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const revealItems = document.querySelectorAll(".reveal");
   const galleryItems = document.querySelectorAll(".gallery-item");
 
+  // Observer one-shot: una vez visible, se queda visible para siempre.
+  // Antes se quitaba la clase "visible" al salir del viewport, lo que
+  // causaba que las imágenes reaparecieran con animación al volver a
+  // scrollear, dando sensación de repetición.
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-      } else {
-        entry.target.classList.remove("visible");
+        observer.unobserve(entry.target); // deja de observar → no vuelve a animar
       }
     });
   }, {
