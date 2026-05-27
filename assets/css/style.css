@@ -1432,6 +1432,247 @@ label,
 a {
   text-align: left;
 }
+/* ═══════════════════════════════════════════
+   CAMPAÑAS & EVENTOS
+═══════════════════════════════════════════ */
+
+.campanas-section {
+  background: #f6f1e8;
+  padding: 56px 28px 64px;
+}
+
+/* Encabezado de sección */
+.campanas-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto 36px;
+  gap: 1rem;
+}
+.campanas-eyebrow {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.campanas-heading {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: #111;
+  line-height: 1.05;
+  margin: 0;
+}
+.campanas-ver-todas {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1.5px solid var(--accent);
+  padding-bottom: 2px;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.campanas-ver-todas:hover { opacity: 0.75; }
+
+/* Grid principal */
+.campanas-grid {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  grid-template-rows: auto;
+  gap: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Card base */
+.campana-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 300px;
+  transition: transform 0.4s ease;
+}
+.campana-card:hover {
+  transform: scale(1.015);
+}
+.campana-card:hover .campana-img-wrap img {
+  transform: scale(1.06);
+}
+
+/* Card destacada (primera) */
+.campana-card:first-child {
+  grid-row: 1 / 3;
+  min-height: 580px;
+}
+
+/* Imagen */
+.campana-img-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: #1a1a1a;
+  overflow: hidden;
+}
+.campana-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+/* Overlay degradado sobre imagen */
+.campana-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    rgba(0,0,0,0.82) 0%,
+    rgba(0,0,0,0.30) 50%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+/* Overlay más oscuro en la card destacada */
+.campana-card:first-child .campana-overlay {
+  background: linear-gradient(to top,
+    rgba(0,0,0,0.92) 0%,
+    rgba(0,0,0,0.55) 45%,
+    rgba(0,0,0,0.20) 100%
+  );
+}
+
+/* Contenido de la card */
+.campana-body {
+  position: relative;
+  z-index: 2;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Badge/tag de categoría */
+.campana-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 999px;
+  width: fit-content;
+  background: var(--accent);
+  color: #111;
+}
+.campana-badge.ghost {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* Título */
+.campana-title {
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.15;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.7);
+}
+.campana-card:first-child .campana-title {
+  font-size: 2.1rem;
+}
+
+/* Descripción (solo en card destacada) */
+.campana-desc {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 380px;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.8);
+}
+
+/* Fechas */
+.campana-fechas {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.campana-fechas span { color: var(--accent); }
+
+/* Botón CTA */
+.campana-btn {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 11px 22px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #111 !important;
+  text-decoration: none;
+  font-weight: 800;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  transition: background 0.25s, transform 0.25s, color 0.25s;
+}
+.campana-btn:hover {
+  background: var(--accent-strong);
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+.campana-btn.ghost {
+  background: transparent;
+  color: #fff !important;
+  border: 1.5px solid rgba(255,255,255,0.5);
+}
+.campana-btn.ghost:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .campanas-grid {
+    grid-template-columns: 1fr;
+  }
+  .campana-card:first-child {
+    grid-row: auto;
+    min-height: 400px;
+  }
+  .campana-card:first-child .campana-title {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .campanas-section { padding: 40px 16px 48px; }
+  .campanas-heading { font-size: 1.8rem; }
+  .campana-card { min-height: 260px; }
+  .campana-body { padding: 20px; }
+  .campana-title { font-size: 1.2rem; }
+  .campana-card:first-child .campana-title { font-size: 1.4rem; }
+  .campana-btn { width: 100%; justify-content: center; }
+}
 
 /* =========================
    ANIMACIONES

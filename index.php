@@ -1,8 +1,9 @@
 <?php
 require_once __DIR__ . '/config/config.php';
 
-$extra_css = [];
-$extra_js = [];
+$extra_css = ['campanas.css'];
+$extra_js  = ['campanas.js'];
+
 
 include __DIR__ . '/views/templates/header.php';
 ?>
@@ -220,6 +221,27 @@ include __DIR__ . '/views/templates/header.php';
     </div>
   </div>
 </section>
+
+
+<!-- CAMPAÑAS -->
+
+<section id="campanas" class="section campanas-section reveal" style="display:none;">
+
+  <div class="campanas-header">
+    <div class="campanas-header-left">
+      <span class="campanas-eyebrow">Lo que está pasando</span>
+      <h2 class="campanas-heading">Campañas &amp; Eventos</h2>
+    </div>
+    <a href="#" class="campanas-ver-todas">Ver todas →</a>
+  </div>
+
+  <div class="campanas-grid" id="campanasGrid">
+    <!-- Las cards se inyectan dinámicamente desde campanas.js -->
+  </div>
+
+</section>
+<!-- /CAMPAÑAS -->
+
 
 <!-- MAPA -->
 <section id="mapa" class="section mapa-section">

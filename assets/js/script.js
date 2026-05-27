@@ -153,12 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ===== GALERÍA =====
-  // Imágenes removidas para evitar duplicados:
-  //   img2.jpg       → ya aparece en sección "área de comedor"
-  //   img5.jpg       → ya aparece en hero slider
-  //   img8.jpg       → ya aparece en hero slider
-  //   galeria_2.jpeg → mismo food court que img2.jpg
-  //   galeria_1.jpeg → mismo food court (discos de colores) que img3.jpg
   const imagenesGaleria = [
     `${ASSETS}img/img11.jpg`,
     `${ASSETS}img/img3.jpg`,
@@ -207,9 +201,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   revealItems.forEach((item) => revealObserver.observe(item));
 
-  // Observer 2 — imágenes de galería: se re-anima cada vez que entran
-  // al viewport. Al salir pierde la clase "visible" y al volver a entrar
-  // vuelve a hacer la animación de entrada.
   const galleryObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -280,4 +271,110 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // ===== CAMPAÑAS (DEMO) =====
+  const CAMPANAS_DEMO = [
+    {
+      titulo:       'Concentro vive el Mundial FIFA 2026',
+      descripcion:  'Pantallas gigantes, activaciones exclusivas y ambiente mundialista para empresarios y visitantes durante todo el torneo.',
+      imagen:       'img/fifa2026.png',
+      fecha_inicio: '2026-06-11',
+      fecha_fin:    '2026-07-19',
+      link:         '#contacto',
+      texto_boton:  'Conocer más',
+      categoria:    '⭐ Destacado · Mundial 2026',
+    },
+    {
+      titulo:       'Jornada de vacunación gratuita',
+      descripcion:  '',
+      imagen:       'img/vacunacion.png',
+      fecha_inicio: '2026-06-04',
+      fecha_fin:    '2026-06-05',
+      link:         '#contacto',
+      texto_boton:  'Ver detalles',
+      categoria:    'Salud',
+    },
+    {
+      titulo:       'Networking empresarial de verano',
+      descripcion:  '',
+      imagen:       'img/reunion_empresa.png',
+      fecha_inicio: '2026-06-12',
+      fecha_fin:    '',
+      link:         '#contacto',
+      texto_boton:  'Registrarme',
+      categoria:    'Negocios',
+    },
+  ];
+
+  function formatFechaCampana(iso) {
+    if (!iso) return '';
+    const d = new Date(iso + 'T00:00:00');
+    if (isNaN(d)) return iso;
+    return d.toLocaleDateString('es-MX', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+
+  function buildFechasHtml(c) {
+    const ini = formatFechaCampana(c.fecha_inicio);
+    const fin = formatFechaCampana(c.fecha_fin);
+    if (!ini && !fin) return '';
+    const partes = [];
+    if (ini) partes.push(`Del <span>${ini}</span>`);
+    if (fin) partes.push(`al <span>${fin}</span>`);
+    return `<p class="campana-fechas">${partes.join(' ')}</p>`;
+  }
+
+  function resolverImagenCampana(path) {
+    if (!path) return `${ASSETS}img/concentro.jpeg`;
+    if (/^https?:\/\//i.test(path)) return path;
+    return `${ASSETS}${path.replace(/^\/+/, '')}`;
+  }
+
+  function renderCampanas(campanas) {
+    const grid    = document.getElementById('campanasGrid');
+    const section = document.getElementById('campanas');
+    if (!grid || !section) return;
+
+    if (!campanas.length) { section.style.display = 'none'; return; }
+
+    section.style.display = '';
+    grid.innerHTML = '';
+
+    campanas.forEach((c, index) => {
+      const esDestacada = index === 0;
+      const badgeClass  = esDestacada ? '' : 'ghost';
+      const btnClass    = esDestacada ? '' : 'ghost';
+      const descHtml    = (esDestacada && c.descripcion)
+        ? `<p class="campana-desc">${c.descripcion}</p>` : '';
+
+      const card = document.createElement('article');
+      card.className = 'campana-card';
+      card.innerHTML = `
+        <div class="campana-img-wrap">
+          <img
+            src="${resolverImagenCampana(c.imagen)}"
+            alt="${c.titulo}"
+            loading="${esDestacada ? 'eager' : 'lazy'}"
+            onerror="this.src='${ASSETS}img/concentro.jpeg'"
+          >
+        </div>
+        <div class="campana-overlay"></div>
+        <div class="campana-body">
+          <span class="campana-badge ${badgeClass}">${c.categoria}</span>
+          <h3 class="campana-title">${c.titulo}</h3>
+          ${descHtml}
+          ${buildFechasHtml(c)}
+          <a href="${c.link}" class="campana-btn ${btnClass}">${c.texto_boton} →</a>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  renderCampanas(CAMPANAS_DEMO);
+  const campanasSection = document.getElementById('campanas');
+  if (campanasSection) {
+    revealObserver.unobserve(campanasSection);
+    revealObserver.observe(campanasSection);
+  }
+
 });
