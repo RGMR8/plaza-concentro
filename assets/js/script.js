@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       titulo:       'Concentro vive el Mundial FIFA 2026',
       descripcion:  'Pantallas gigantes, activaciones exclusivas y ambiente mundialista para empresarios y visitantes durante todo el torneo.',
-      imagen:       'img/fifa2026.png',
+      imagen:       'img/mundial.jpeg',
       fecha_inicio: '2026-06-11',
       fecha_fin:    '2026-07-19',
       link:         '#contacto',
