@@ -92,7 +92,7 @@ include __DIR__ . '/views/templates/header.php';
     </div>
 
     <!-- ÁREAS COMUNES -->
-    <div id="area-comedor" class="area-comun-card">
+    <div id="areas-comunes" class="area-comun-card">
       <div class="area-comun-content">
         <span class="area-comun-tag">Áreas comunes</span>
         <h3>Un entorno pensado para tu día a día</h3>
